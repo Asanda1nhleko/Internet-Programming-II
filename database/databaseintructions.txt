@@ -1,0 +1,94 @@
+DATABASE SETUP INSTRUCTIONS
+
+Project Name:
+MUT ICT Portal
+
+Requirements:
+- Node.js
+- MySQL Workbench or XAMPP
+- MySQL Server
+
+========================================
+STEP 1: OPEN MYSQL WORKBENCH
+========================================
+
+Open MySQL Workbench and connect to your local MySQL server.
+
+========================================
+STEP 2: IMPORT DATABASE
+========================================
+
+1. Go to:
+   Server → Data Import
+
+2. Select:
+   “Import from Self-Contained File”
+
+3. Choose the file:
+   database/mut_portal.sql
+
+4. Click:
+   Start Import
+
+========================================
+STEP 3: VERIFY DATABASE
+========================================
+
+Refresh the schemas section.
+
+You should see:
+- mutict (or your database name)
+- tables
+- student records
+
+========================================
+STEP 4: OPEN PROJECT
+========================================
+
+Open the project folder in VS Code.
+
+========================================
+STEP 5: INSTALL DEPENDENCIES
+========================================
+
+Open terminal and run:
+
+npm install
+
+========================================
+STEP 6: CONFIGURE DATABASE CONNECTION
+========================================
+
+Open server.js and ensure the database connection matches your MySQL settings.
+
+Example:
+
+host: "localhost"
+user: "root"
+password: "YOUR_PASSWORD"
+database: "mutict"
+
+========================================
+STEP 7: RUN THE SERVER
+========================================
+
+In terminal run:
+
+node server.js
+
+========================================
+STEP 8: OPEN THE SYSTEM
+========================================
+
+Open browser and go to:
+
+http://localhost:3000
+
+========================================
+EXPECTED RESULT
+========================================
+
+- Login page opens
+- Database connects successfully
+- Student information loads dynamically
+- Portal functions correctly
