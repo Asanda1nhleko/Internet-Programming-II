@@ -1,0 +1,434 @@
+:root {
+    --mut-red: #7a1c2e;
+    --mut-burgundy: #5a0f1a;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --gold: #d4af37;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: var(--light-bg);
+}
+
+/* ================= LOGIN PAGE LAYOUT ================= */
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* LEFT SIDE - BURGUNDY */
+.login-left {
+    flex: 1;
+    background: linear-gradient(135deg, #6d1f2a 0%, #7a1c2e 50%, #5a1220 100%);
+    color: var(--white);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-left h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.login-left p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+.login-left ul {
+    list-style: none;
+}
+
+.login-left li {
+    font-size: 1.1rem;
+    margin: 18px 0;
+    opacity: 0.9;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+/* RIGHT SIDE - LIGHT BACKGROUND */
+.login-right {
+    flex: 1;
+    background: var(--light-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* LOGIN CARD */
+.login-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 70px 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 450px;
+}
+
+.login-card h2 {
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin: 0 0 40px 0;
+    text-align: left;
+    font-weight: 700;
+}
+
+/* DEMO WARNING BOX */
+.note {
+    background: #fffbea;
+    border-left: 4px solid var(--gold);
+    padding: 16px 18px;
+    border-radius: 8px;
+    color: #b8860b;
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+    text-align: left;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* INPUT FIELDS */
+.login-card input {
+    width: 100%;
+    padding: 16px 16px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #f5f7fa;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.login-card input::placeholder {
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+.login-card input:focus {
+    outline: none;
+    border-color: var(--mut-red);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(122, 28, 46, 0.08);
+}
+
+/* LOGIN BUTTON */
+.login-card button {
+    width: 100%;
+    padding: 16px 24px;
+    margin-top: 28px;
+    background: var(--mut-burgundy);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.login-card button:hover {
+    background: #4a0c15;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(122, 28, 46, 0.2);
+}
+
+.login-card button:active {
+    transform: translateY(0);
+}
+
+/* LOGIN MESSAGE */
+#loginMsg {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--mut-red);
+    font-weight: 600;
+    font-size: 0.95rem;
+    min-height: 20px;
+}
+
+/* DEMO INFO TEXT */
+.demo-info {
+    margin-top: 24px;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+
+.demo-info strong {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* ================= PORTAL PAGE ================= */
+#portalPage {
+    display: none !important;
+    width: 100%;
+    height: 100vh;
+}
+
+#portalPage[style*="display: flex"],
+#portalPage.active {
+    display: flex !important;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(180deg, var(--mut-red), #a62b46);
+    color: var(--white);
+    padding: 30px 20px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+}
+
+.sidebar a {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 14px 16px;
+    margin: 8px 0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(4px);
+    color: var(--white);
+}
+
+.main {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background: var(--light-bg);
+}
+
+.main h1 {
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.card h3 {
+    color: var(--mut-red);
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 1200px) {
+    .login-left {
+        padding: 60px 40px;
+    }
+
+    .login-left h1 {
+        font-size: 2.4rem;
+    }
+
+    .login-card {
+        padding: 50px 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .login-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .login-left {
+        padding: 50px 40px;
+        min-height: 50vh;
+    }
+
+    .login-right {
+        min-height: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-left {
+        padding: 40px 30px;
+    }
+
+    .login-left h1 {
+        font-size: 2rem;
+    }
+
+    .login-left p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .login-left li {
+        font-size: 0.95rem;
+        margin: 14px 0;
+    }
+
+    .login-card {
+        padding: 40px 30px;
+        max-width: 100%;
+    }
+
+    .login-card h2 {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+
+    .sidebar {
+        width: 200px;
+        padding: 20px;
+    }
+
+    .sidebar h2 {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+    .main {
+        padding: 30px;
+    }
+
+    .main h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-left {
+        padding: 30px 20px;
+    }
+
+    .login-left h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .login-left p {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+
+    .login-left li {
+        font-size: 0.85rem;
+        margin: 10px 0;
+    }
+
+    .login-right {
+        padding: 20px;
+    }
+
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+    }
+
+    .login-card input {
+        padding: 14px 14px;
+        font-size: 1rem;
+    }
+
+    .login-card button {
+        padding: 14px;
+        margin-top: 20px;
+        font-size: 1rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        padding: 20px;
+    }
+
+    .main h1 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .login-left h1 {
+        font-size: 1.4rem;
+    }
+
+    .login-card {
+        padding: 25px 15px;
+    }
+
+    .login-card h2 {
+        font-size: 1.2rem;
+    }
+
+    .note {
+        font-size: 0.85rem;
+        padding: 12px 12px;
+    }
+}

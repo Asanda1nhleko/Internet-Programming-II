@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MUT ICT Department | Courses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Chatbot Button -->
+<div id="chatbot-toggle" onclick="toggleChat()">💬</div>
+
+<!-- Chatbot Box -->
+<div id="chatbot-box">
+    <div class="chat-header">
+        ICT Assistant
+        <span onclick="toggleChat()">✖</span>
+    </div>
+
+    <div id="chat-messages"></div>
+
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask something..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27600000000?text=Hello%20I%20need%20help%20with%20ICT%20Department"
+       target="_blank" class="whatsapp-btn">
+       Chat on WhatsApp
+    </a>
+</div>
+</div>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+
+    <div class="logo">
+        <img src="images/mut logo.png" alt="MUT ICT Logo">
+    </div>
+
+<nav class="main-nav">
+    <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+
+        <!-- ABOUT -->
+        <li class="dropdown">
+            <a href="#">About ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="whyus.html">Why Us</a></li>
+                <li><a href="staff.html">Staff</a></li>
+            </ul>
+        </li>
+
+        <li><a href="courses.html">Courses</a></li>
+
+        <!-- STUDENTS -->
+        <li class="dropdown">
+            <a href="#">Students ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </li>
+
+        <!-- RESOURCES -->
+        <li class="dropdown">
+            <a href="#">Resources ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="helpdesk.html">Helpdesk</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="laboratories.html">Laboratories</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+</header>
+
+ <section class="hod-page">
+
+    <div class="hod-main">
+        <img src="images/vikash.jpg" alt="Dr V Jugoo">
+
+        <div class="hod-text">
+            <h1>Dr V. Jugoo</h1>
+            <h3>Head of Department – ICT</h3>
+
+            <p>
+                Dr V. Jugoo leads the Department of Information and Communication Technology
+                with a strong vision of academic excellence, innovation, and industry relevance.
+                Under his leadership, the department continues to produce graduates who are
+                technically skilled, forward-thinking, and ready to contribute to the digital economy.
+            </p>
+
+            <p>
+                With extensive experience in research, curriculum development, and student
+                mentorship, Dr Jugoo is committed to shaping future technology leaders
+                at Mangosuthu University of Technology.
+            </p>
+        </div>
+    </div>
+
+    <!-- STAFF SECTION -->
+    <div class="staff-section">
+        <h2>Meet Our Academic Staff</h2>
+
+        <div class="staff-grid">
+
+            <div class="staff-card">
+                <img src="data:image/jpeg;base64,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" alt="Lecturer 1">
+                <h3>Mrs S. Naidoo</h3>
+                <p>Senior Lecturer – software development</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="images/njhgvgh.jpg" alt="Lecturer 2">
+                <h3>Ms T. Mkhize</h3>
+                <p>Lecturer – Software Development</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="images/bbbb.jpg" alt="Lecturer 3">
+                <h3>Mr Z. Pillay</h3>
+                <p>Lecturer – Technical programming</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- About -->
+        <div class="footer-column">
+            <h3>MUT ICT</h3>
+            <p>Empowering future technology leaders through innovation and excellence.</p>
+
+            <!-- Social Media -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/MUTUmlazi/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mutcampus/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/MUTcampus"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/school/mangosuthu-university-of-technology/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="courses.html">Courses</a>
+            <a href="projects.html">Projects</a>
+            <a href="staff.html">Staff</a>
+            <a href="whyus.html">Why Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="events.html">Events</a>
+        </div>
+
+        <!-- Student Resources -->
+        <div class="footer-column">
+            <h3>Student Resources</h3>
+            <a href="https://my.nsfas.org.za/" target="_blank">NSFAS</a>
+            <a href="https://www.mut.ac.za" target="_blank">MUT Website</a>
+            <a href="faq.html">FAQ</a>
+            <a href="helpdesk.html">Helpdesk</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <p>031 907 7111</p>
+            <p>info@mut.ac.za</p>
+            <p>Umlazi, Durban, South Africa</p>
+
+            <!-- Get Directions -->
+            <a class="directions-btn"
+   href="https://www.google.com/maps/place/Mangosuthu+University+of+Technology"
+   target="_blank">
+   <i class="fa-solid fa-location-dot"></i> Get Directions
+</a>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 MUT ICT Department | All Rights Reserved
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html> 

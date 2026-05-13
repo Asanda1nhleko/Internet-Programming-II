@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MUT ICT Department</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= SEARCH MODAL ================= -->
+<div id="searchModal" class="search-modal">
+    <div class="search-box-modal">
+        <input type="text" id="modalSearchInput" placeholder="Search MUT ICT...">
+        <span class="close-btn" onclick="closeSearch()">✖</span>
+    </div>
+    <div id="modalResults" class="modal-results"></div>
+</div>
+
+<!-- Chatbot Button -->
+<div id="chatbot-toggle" onclick="toggleChat()">💬</div>
+
+<!-- Chatbot Box -->
+<div id="chatbot-box">
+    <div class="chat-header">
+        ICT Assistant
+        <span onclick="toggleChat()">✖</span>
+    </div>
+
+    <div id="chat-messages"></div>
+
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask something..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27600000000?text=Hello%20I%20need%20help%20with%20ICT%20Department"
+       target="_blank" class="whatsapp-btn">
+       Chat on WhatsApp
+    </a>
+</div>
+</div>
+
+<!-- ================= COOKIE BANNER ================= -->
+<div id="cookie-banner" class="cookie-banner">
+    <p>
+        We use cookies to improve your experience. You can accept or reject non-essential cookies.
+    </p>
+
+    <div class="cookie-buttons">
+        <button id="accept-cookies">Accept</button>
+        <button id="reject-cookies">Reject</button>
+        <a href="privacy.html" style="color: #fff; text-decoration: underline;">
+    Learn more
+</a>
+    </div>
+</div>
+
+<div class="top-bar">
+
+    <div class="top-left">
+        <span>Welcome to MUT ICT</span>
+    </div>
+
+    <div class="top-right">
+        <a href="mailto:info@mut.ac.za">
+            <i class="fas fa-envelope"></i> Email
+        </a>
+
+      <a href="portal.html">
+    <i class="fas fa-user-graduate"></i> Student Portal
+</a>
+
+        <a href="contact.html">
+            <i class="fas fa-phone"></i> Contact
+        </a>
+
+       <span onclick="openSearch()">
+    <i class="fas fa-search"></i>
+</span>
+    </div>
+
+</div>
+
+</div>
+
+<!-- SEARCH DROPDOWN -->
+<div id="searchOverlay" class="search-overlay">
+    <input type="text" id="searchInput" placeholder="Search..." onkeyup="smartSearch()">
+    <div id="searchResults"></div>
+</div>
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+
+    <div class="logo">
+        <img src="images/mut logo.png" alt="MUT ICT Logo">  
+    </div>
+<nav class="main-nav">
+    <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+
+
+
+
+        
+
+        <!-- ABOUT -->
+        <li class="dropdown">
+            <a href="#">About ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="whyus.html">Why Us</a></li>
+                <li><a href="staff.html">Staff</a></li>
+            </ul>
+        </li>
+
+        <li><a href="courses.html">Courses</a></li>
+
+        <!-- STUDENTS -->
+        <li class="dropdown">
+            <a href="#">Students ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </li>
+
+        <!-- RESOURCES -->
+        <li class="dropdown">
+            <a href="#">Resources ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="helpdesk.html">Helpdesk</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="laboratories.html">Laboratories</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="video/14159475_3840_2160_25fps.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h1>Welcome to the ICT Department</h1>
+
+        <p>
+            Welcome to the Department of Information and Communication Technology at 
+            Mangosuthu University of Technology. We develop innovative thinkers,
+            skilled professionals, and future technology leaders.
+        </p>
+
+        <h2 class="slogan">Shape and Own the Future</h2>
+
+        <a href="https://www.cao.ac.za/" target="_blank" class="apply-btn">
+            Apply Now
+        </a>
+    </div>
+</section>
+
+<!-- ================= ABOUT PREVIEW ================= -->
+<section class="home-preview">
+   <h2>About Our Department</h2>
+   <p>
+       The MUT ICT Department is committed to developing the next generation of technology leaders.
+        It offers innovative programmes in software development and networking, including emerging technologies.
+         The curriculum combines strong theoretical knowledge with practical, hands-on experience in modern laboratories.
+          This approach equips students with the skills to turn ideas into real-world solutions and contribute to technological progress.
+   </p>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- About -->
+        <div class="footer-column">
+            <h3>MUT ICT</h3>
+            <p>Empowering future technology leaders through innovation and excellence.</p>
+
+            <!-- Social Media -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/MUTUmlazi/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mutcampus/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/MUTcampus"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/school/mangosuthu-university-of-technology/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="courses.html">Courses</a>
+            <a href="projects.html">Projects</a>
+            <a href="staff.html">Staff</a>
+            <a href="whyus.html">Why Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="events.html">Events</a>
+        </div>
+
+        <!-- Student Resources -->
+        <div class="footer-column">
+            <h3>Student Resources</h3>
+            <a href="https://my.nsfas.org.za/" target="_blank">NSFAS</a>
+            <a href="https://www.mut.ac.za" target="_blank">MUT Website</a>
+            <a href="faq.html">FAQ</a>
+            <a href="helpdesk.html">Helpdesk</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <p>031 907 7111</p>
+            <p>info@mut.ac.za</p>
+            <p>Umlazi, Durban, South Africa</p>
+
+            <!-- Get Directions -->
+            <a class="directions-btn"
+   href="https://www.google.com/maps/place/Mangosuthu+University+of+Technology"
+   target="_blank">
+   <i class="fa-solid fa-location-dot"></i> Get Directions
+</a>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 MUT ICT Department | All Rights Reserved
+    </div>
+
+</footer>
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="script.js"></script>
+
+</body>
+</html>

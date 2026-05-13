@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MUT ICT | Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+
+<div class="overlay"></div>
+
+<div class="container">
+
+    <div class="box">
+
+        <h2>Welcome to MUT ICT</h2>
+
+        <!-- LOGIN -->
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <p id="msg"></p>
+
+        <hr>
+
+        <h3>Create Account</h3>
+
+        <!-- REGISTER -->
+        <input type="text" id="regName" placeholder="Full Name">
+        <input type="email" id="regEmail" placeholder="Email">
+        <input type="password" id="regPassword" placeholder="Password">
+
+        <button onclick="register()">Register</button>
+
+    </div>
+
+</div>
+
+<script src="auth.js"></script>
+
+</body>
+</html>

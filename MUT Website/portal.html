@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MUT ICT Portal</title>
+<link rel="stylesheet" href="portal.css">
+</head>
+
+<body>
+
+<!-- ================= LOGIN PAGE ================= -->
+<div id="loginPage" class="login-container">
+
+    <!-- LEFT SIDE -->
+    <div class="login-left">
+
+        <div class="portal-info">
+
+            <h1>MUT ICT Portal</h1>
+
+            <p>
+                Access your student dashboard, timetable,
+                and academic services.
+            </p>
+
+            <div class="portal-features">
+                <p>✔ View timetable</p>
+                <p>✔ Check announcements</p>
+                <p>✔ Submit requests</p>
+                <p>✔ Access student services</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="login-right">
+
+        <div class="login-card">
+
+            <h2>Student Login</h2>
+
+            <div class="demo-box">
+                ⚠ registered students only <br>
+            </div>
+
+            <div class="input-group">
+                <span>👤</span>
+                <input type="text"
+                       id="studentNumber"
+                       placeholder="Student Number">
+            </div>
+
+            <div class="input-group">
+                <span>🔒</span>
+                <input type="password"
+                       id="password"
+                       placeholder="Password">
+            </div>
+
+            <button onclick="login()">Login</button>
+
+            <p id="loginMsg"></p>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PORTAL -->
+<div id="portalPage">
+
+    <div class="sidebar">
+        <h3>MUT Portal</h3>
+        <a onclick="showSection('dashboard')">Dashboard</a>
+        <a onclick="showSection('timetable')">Timetable</a>
+        <a onclick="showSection('announcements')">Announcements</a>
+        <a onclick="showSection('upload')">Upload</a>
+        <a onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+
+        <!-- DASHBOARD -->
+        <div id="dashboardSection" class="section">
+            <h1>Welcome, <span id="name"></span></h1>
+
+            <div class="card">
+                <b>Email:</b> <span id="email"></span>
+            </div>
+
+            <div class="card">
+                <b>Course:</b> <span id="course"></span>
+            </div>
+
+            <div class="card">
+                <h3>Your Timetable</h3>
+                <img src="images/timetable.jpeg" width="100%">
+            </div>
+        </div>
+
+        <!-- TIMETABLE -->
+        <div id="timetableSection" class="section">
+            <h2>Full Timetable</h2>
+            <img src="images/timetable.jpeg" width="100%">
+        </div>
+
+        <!-- ANNOUNCEMENTS -->
+        <div id="announcementsSection" class="section">
+            <h2>Announcements</h2>
+
+            <div class="card">
+                <h4>Semester Updates</h4>
+                <p>Classes resume next week Monday.</p>
+            </div>
+
+            <div class="card">
+                <h4>Assignment Deadline</h4>
+                <p>Submit your ICT project before Friday.</p>
+            </div>
+        </div>
+
+        <!-- 🔥 UPLOAD (FULL CRUD) -->
+        <div id="uploadSection" class="section">
+            <h2>Upload File</h2>
+
+            <input type="file" id="fileInput">
+            <button onclick="uploadFile()">Upload</button>
+
+            <p id="uploadMsg"></p>
+
+            <h3>Your Files</h3>
+            <ul id="fileList"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+// LOGIN
+async function login() {
+
+    const student = document.getElementById("studentNumber").value.trim();
+    const pass = document.getElementById("password").value.trim();
+    const msg = document.getElementById("loginMsg");
+
+    if (!student || !pass) {
+        msg.innerText = "Fill all fields";
+        return;
+    }
+
+    if (student === "student" && pass === "1234") {
+        const user = {
+            name: "Demo Student",
+            email: "student@mut.ac.za",
+            course: "IT"
+        };
+
+        localStorage.setItem("portalUser", JSON.stringify(user));
+        showPortal();
+        return;
+    }
+
+    try {
+        const res = await fetch("http://localhost:3000/portal-login", {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({student_number: student, password: pass})
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            localStorage.setItem("portalUser", JSON.stringify(data.user));
+            showPortal();
+        } else {
+            msg.innerText = "Invalid login";
+        }
+
+    } catch {
+        msg.innerText = "Server error";
+    }
+}
+
+// SHOW PORTAL
+function showPortal() {
+    const user = JSON.parse(localStorage.getItem("portalUser"));
+    if (!user) return;
+
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("portalPage").style.display = "flex";
+
+    document.getElementById("name").innerText = user.name;
+    document.getElementById("email").innerText = user.email;
+    document.getElementById("course").innerText = user.course;
+
+    showSection("dashboard");
+}
+
+// SWITCH SECTIONS
+function showSection(sec) {
+    document.querySelectorAll(".section").forEach(s => s.style.display="none");
+    document.getElementById(sec+"Section").style.display = "block";
+
+    if (sec === "upload") {
+        loadFiles(); // 🔥 auto load files
+    }
+}
+// ================= FILE SYSTEM (CRUD FRONTEND) =================
+
+
+// 🔥 UPLOAD FILE (CREATE)
+async function uploadFile() {
+
+    const file = document.getElementById("fileInput").files[0];
+    const msg = document.getElementById("uploadMsg");
+
+    if (!file) {
+        msg.innerText = "Select file first";
+        return;
+    }
+
+    msg.innerText = "Uploading...";
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+        const res = await fetch("http://localhost:3000/upload", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            msg.innerText = "Upload successful ✔";
+
+            // refresh list immediately
+            loadFiles();
+
+            document.getElementById("fileInput").value = "";
+        } else {
+            msg.innerText = "Upload failed ❌";
+        }
+
+    } catch (err) {
+        console.log(err);
+        msg.innerText = "Server error";
+    }
+}
+
+
+// 🔥 LOAD FILES (READ)
+async function loadFiles() {
+
+    const res = await fetch("http://localhost:3000/files");
+    const files = await res.json();
+
+    const list = document.getElementById("fileList");
+    list.innerHTML = "";
+
+    files.forEach(file => {
+
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+            <a href="http://localhost:3000/uploads/${file.filename}" target="_blank">
+                ${file.original_name}
+            </a>
+
+            <button onclick="renameFile(${file.id}, '${file.filename}')">Rename</button>
+            <button onclick="deleteFile(${file.id})">Delete</button>
+        `;
+
+        list.appendChild(li);
+    });
+}
+
+
+// 🔥 DELETE FILE (DELETE)
+async function deleteFile(id) {
+
+    const res = await fetch(`http://localhost:3000/delete-file/${id}`, {
+        method: "DELETE"
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+        loadFiles();
+    } else {
+        alert("Delete failed");
+    }
+}
+
+
+// 🔥 RENAME FILE (UPDATE)
+async function renameFile(id, oldName) {
+
+    const ext = oldName.split('.').pop();
+    const base = oldName.substring(0, oldName.lastIndexOf('.'));
+
+    const newBase = prompt("Enter new file name:", base);
+
+    if (!newBase) return;
+
+    const newName = newBase + "." + ext;
+
+    const res = await fetch("http://localhost:3000/rename-file", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            id,
+            oldName,
+            newName
+        })
+    });
+
+    const data = await res.json();
+
+    console.log("RENAME RESPONSE:", data);
+
+    if (data.success) {
+        loadFiles(); // refresh UI
+    } else {
+        alert("Rename failed");
+    }
+}
+
+
+// 🔥 AUTO LOAD FILES WHEN PAGE OPENS
+window.onload = () => {
+    if (localStorage.getItem("portalUser")) {
+        showPortal();
+    }
+
+    loadFiles(); // IMPORTANT
+};
+
+
+// 🔥 LOGOUT
+function logout() {
+    localStorage.removeItem("portalUser");
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>

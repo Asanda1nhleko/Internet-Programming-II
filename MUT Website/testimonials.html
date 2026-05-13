@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MUT ICT Department | Courses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Chatbot Button -->
+<div id="chatbot-toggle" onclick="toggleChat()">💬</div>
+
+<!-- Chatbot Box -->
+<div id="chatbot-box">
+    <div class="chat-header">
+        ICT Assistant
+        <span onclick="toggleChat()">✖</span>
+    </div>
+
+    <div id="chat-messages"></div>
+
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask something..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/0768672030?text=Hello%20I%20need%20help%20with%20ICT%20Department"
+       target="_blank" class="whatsapp-btn">
+       Chat on WhatsApp
+    </a>
+</div>
+</div>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+
+    <div class="logo">
+        <img src="images/mut logo.png" alt="MUT ICT Logo">
+    </div>
+
+    <nav class="main-nav">
+    <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+
+        <!-- ABOUT -->
+        <li class="dropdown">
+            <a href="#">About ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="whyus.html">Why Us</a></li>
+                <li><a href="staff.html">Staff</a></li>
+            </ul>
+        </li>
+
+        <li><a href="courses.html">Courses</a></li>
+
+        <!-- STUDENTS -->
+        <li class="dropdown">
+            <a href="#">Students ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </li>
+
+        <!-- RESOURCES -->
+        <li class="dropdown">
+       
+         <a href="#">Resources ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="helpdesk.html">Helpdesk</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="laboratories.html">Laboratories</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </li>
+
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+</header>
+
+ <section class="testimonials-page">
+
+    <div class="testimonials-header">
+        <h1>Graduate Testimonials</h1>
+        <p>
+            Hear from our graduates who are making an impact in the technology industry.
+            Their success reflects the strength and quality of our ICT programmes.
+        </p>
+    </div>
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial-card">
+            <div class="quote-icon">“</div>
+            <p>
+                ICT at MUT gave me practical skills that prepared me for real-world
+                software development. Today, I work confidently in the industry
+                thanks to the strong foundation I received.
+            </p>
+
+            <div class="student-info">
+                <img src="images/mpedulo.jpg" alt="Graduate 1">
+                <div>
+                    <h3>Mpendulo Mkhize</h3>
+                    <span>Software Developer – Durban</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">“</div>
+            <p>
+                The networking labs and hands-on projects helped me understand
+                enterprise systems deeply. The lecturers were supportive and
+                industry-focused.
+            </p>
+
+            <div class="student-info">
+                <img src="images/123.jpg" alt="Graduate 2">
+                <div>
+                    <h3>Luyanda Zulu</h3>
+                    <span>Network Engineer – Johannesburg</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">“</div>
+            <p>
+                Studying ICT at MUT shaped my leadership and technical skills.
+                I now manage cybersecurity operations with confidence and
+                professionalism.
+            </p>
+
+            <div class="student-info">
+                <img src="images/asa1.jpeg"alt="Graduate 3">
+                <div>
+                    <h3>Asanda Nhleko</h3>
+                    <span>Cybersecurity Analyst – Cape Town</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- About -->
+        <div class="footer-column">
+            <h3>MUT ICT</h3>
+            <p>Empowering future technology leaders through innovation and excellence.</p>
+
+            <!-- Social Media -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/MUTUmlazi/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mutcampus/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/MUTcampus"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/school/mangosuthu-university-of-technology/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="courses.html">Courses</a>
+            <a href="projects.html">Projects</a>
+            <a href="staff.html">Staff</a>
+            <a href="whyus.html">Why Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="events.html">Events</a>
+        </div>
+
+        <!-- Student Resources -->
+        <div class="footer-column">
+            <h3>Student Resources</h3>
+            <a href="https://my.nsfas.org.za/" target="_blank">NSFAS</a>
+            <a href="https://www.mut.ac.za" target="_blank">MUT Website</a>
+            <a href="faq.html">FAQ</a>
+            <a href="helpdesk.html">Helpdesk</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <p>031 907 7111</p>
+            <p>info@mut.ac.za</p>
+            <p>Umlazi, Durban, South Africa</p>
+
+            <!-- Get Directions -->
+            <a class="directions-btn"
+   href="https://www.google.com/maps/place/Mangosuthu+University+of+Technology"
+   target="_blank">
+   <i class="fa-solid fa-location-dot"></i> Get Directions
+</a>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 MUT ICT Department | All Rights Reserved
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html> 
